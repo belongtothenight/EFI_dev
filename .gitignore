@@ -1,0 +1,7 @@
+/*
+!.gitignore
+#!usb.img
+!create_img.sh
+!launch_vm.bat
+!src/
+!out/
