@@ -1427,6 +1427,15 @@ EFI_STATUS
     OUT VOID                *Buffer
 );
 
+// EFI_HANDLE_PROTOCOL: UEFI Spec 2.10 section 7.3
+typedef
+EFI_STATUS
+(EFIAPI *EFI_HANDLE_PROTOCOL) (
+    IN EFI_HANDLE   Handle,
+    IN EFI_GUID     *Protocol,
+    OUT VOID        **Interface
+);
+
 // EFI_DISK_WRITE: UEFI Spec 2.10 section 13.7.3
 typedef
 EFI_STATUS
@@ -1584,7 +1593,7 @@ typedef struct {
     void* InstallProtocolInterface;
     void* ReinstallProtocolInterface;
     void* UninstallProtocolInterface;
-    void* HandleProtocol;
+    EFI_HANDLE_PROTOCOL HandleProtocol;
     VOID* Reserved;
     void* RegisterProtocolNotify;
     void* LocateHandle;
